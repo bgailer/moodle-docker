@@ -1,0 +1,25 @@
+name: moodledocker${MV:-default}
+
+services:
+  webserver:
+    volumes:    
+      - moodledata:/var/www/moodledata
+  db:
+    volumes:
+      - moodledb:/var/lib/postgresql/data
+  goemaxima:
+    image: mathinstitut/goemaxima:2026101500-latest
+    container_name: goemaxima
+    ports:
+      - "8081:8080"
+    restart: unless-stopped
+  jobe:
+    image: trampgeek/jobeinabox:latest
+    container_name: jobe
+    ports:
+      - "4000:80"
+    restart: unless-stopped
+
+volumes:
+  moodledata:
+  moodledb:
