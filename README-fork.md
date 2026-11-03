@@ -124,3 +124,7 @@ bin/moodle-docker-compose exec webserver curl <some-url>
 ```bash
 git clone https://github.com/moodlehq/moodle-local_codechecker.git local/codechecker
 ```
+
+## Some more thoughts
+
+Well you could also do the simple variant by just cloning the original repo and foillowing the steps of the tutorial. This is fine for most cases but if you want another moodle bversion you have to again clone and do the stuff. Another alternative would be to always upgrade your moodle instance. Then the simple approach is probably better than my suggestion of having some more moodles under the `moodle` dir...
