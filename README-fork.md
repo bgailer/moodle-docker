@@ -25,7 +25,7 @@ You can read this [guide](https://lmstutorials.com/tutorials/moodle_docker/moodl
 5. Add the git excludes (see [below](#git-exclude))
 6. Create `config.php` for the moodle setup by using the template file: `cp config.docker-template.php $MOODLE_DOCKER_WWWROOT/
 config.php`
-7. Create volumes (not bind mounts) using `local.yml` (see [below](#`local.yml`))
+7. Create volumes (not bind mounts) using `local.yml` (see [below](#`local.yml`)) &rarr; Note that the `local.yml` only ever lives in branches that are not the main one; they could be ignored or excluded but for this repo fork structure it is better to include them as long as it is done on different branches so we can have mutliple dockermoodle instances without cloning the repo over and over again...
 8. Spin up the compose project by running `bin/moodle-docker-compose up -d` (`-d` means "detach" so we dont block the terminal)
 9. Do the moodle setup
 ```bash
