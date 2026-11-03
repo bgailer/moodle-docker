@@ -1,6 +1,6 @@
 # Dockermoodle fork
 
-Here are additional installatrion instructions for setting up a dockermoodle.
+Here are additional installation instructions for setting up a dockermoodle.
 
 ## Steps
 
@@ -15,16 +15,17 @@ git config --global include.path "/mnt/c/Users/<username>/.gitconfig"
 ```
 
 1. Clone this repo
-2. Set environment variables:
+2. Create a branch for your project and switch to it. It is wise to name it after the moodle version you want to clone and maybe the plugins you want to use or develop...
+3. Set environment variables:
 - `export MOODLE_DOCKER_DB=pgsql`
 - `export MOODLE_DOCKER_WWWROOT=./moodle/...` so name after version so for instance `./moodle/405` so you can have multiple dockermoodles within the same repo; check with `echo $MOODLE_DOCKER_WWWROOT`
-3. Clone moodle into this repo; for example `git clone -b MOODLE_403_STABLE git://git.moodle.org/moodle.git $MOODLE_DOCKER_WWWROOT`
-4. Add the git excludes (see [below](#git-exclude))
-5. Create `config.php` for the moodle setup by using the template file: `cp config.docker-template.php $MOODLE_DOCKER_WWWROOT/
+4. Clone moodle into this repo; for example `git clone -b MOODLE_403_STABLE git://git.moodle.org/moodle.git $MOODLE_DOCKER_WWWROOT`
+5. Add the git excludes (see [below](#git-exclude))
+6. Create `config.php` for the moodle setup by using the template file: `cp config.docker-template.php $MOODLE_DOCKER_WWWROOT/
 config.php`
-6. Create volumes (not bind mounts) using `local.yml` (see [below](#`local.yml`))
-7. Spin up the compose project by running `bin/moodle-docker-compose up -d` (`-d` means "detach" so we dont block the terminal)
-8. Do the moodle setup
+7. Create volumes (not bind mounts) using `local.yml` (see [below](#`local.yml`))
+8. Spin up the compose project by running `bin/moodle-docker-compose up -d` (`-d` means "detach" so we dont block the terminal)
+9. Do the moodle setup
 ```bash
 bin/moodle-docker-compose exec webserver php /var/www/html/admin/cli/install_database.php \
     --agree-license \
@@ -34,11 +35,11 @@ bin/moodle-docker-compose exec webserver php /var/www/html/admin/cli/install_dat
     --adminpass="test" \
     --adminemail="admin@example.com"
 ```
-9. Start developing plugins or install some (for installation via browser drag & drop see [below](#permissions))
+10. Start developing plugins or install some (for installation via browser drag & drop see [below](#permissions))
 
 
 ## Git exlude
-- Use Git exlude (`.git/info/exclude`) for this repo and add `local.yml`
+- ~~Use Git exlude (`.git/info/exclude`) for this repo and add `local.yml`~~
 - Use Git exclude for the cloned moodle repo to add `*` wildcard to it
 
 ## `local.yml`
