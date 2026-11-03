@@ -6,7 +6,7 @@ Here are additional installation instructions for setting up a dockermoodle.
 
 Before you start, make sure to have Docker desktop installed and enabled the WSL as Virtual Machine Manager and also "integration with my default WSL distro" enabled.
 
-Start Docker desktop and go into the Linux terminal of choice (for Windows users it is the WSL (`wxl.exe`)). All of the following is done inside Linux environment.
+Start Docker desktop and go into the Linux terminal of choice (for Windows users it is the WSL (`wsl.exe`)). All of the following is done inside Linux environment.
 
 If you like, you can include your Windows git configuration into the WSL. Just make sure to not have the auto CRLF feature in there... (in case of this use `git config --global core.autocrlf input` to overwrite)
 ```bash
