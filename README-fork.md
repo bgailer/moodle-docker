@@ -21,7 +21,7 @@ You can read this [guide](https://lmstutorials.com/tutorials/moodle_docker/moodl
 3. Set environment variables:
 - `export MOODLE_DOCKER_DB=pgsql`
 - `export MOODLE_DOCKER_WWWROOT=./moodle/...` so name after version so for instance `./moodle/405` so you can have multiple dockermoodles within the same repo; check with `echo $MOODLE_DOCKER_WWWROOT`
-&rarr; you can also set those in an `.env` file so they are picked up by docker compose
+&rarr; you can also set those in an `.env` file so they are picked up by docker compose but therefore you have to run `set -a; source .env; set +a` before the docker compose command so linux exports those vars
 4. Clone moodle into this repo; for example `git clone -b MOODLE_403_STABLE git://git.moodle.org/moodle.git $MOODLE_DOCKER_WWWROOT`
 5. Add the git excludes (see [below](#git-exclude))
 6. Create `config.php` for the moodle setup by using the template file: `cp config.docker-template.php $MOODLE_DOCKER_WWWROOT/
