@@ -14,7 +14,7 @@ If you like, you can include your Windows git configuration into the WSL. Just m
 git config --global include.path "/mnt/c/Users/<username>/.gitconfig"
 ```
 
-1. Clone this repo
+1. Fork and clone this repo **or** fork and clone the original one [here](https://github.com/moodlehq/moodle-docker), remove local.yml from gitignore and then proceed
 2. Create a branch for your project and switch to it. It is wise to name it after the moodle version you want to clone and maybe the plugins you want to use or develop...
 3. Set environment variables:
 - `export MOODLE_DOCKER_DB=pgsql`
