@@ -22,10 +22,9 @@ You can read this [guide](https://lmstutorials.com/tutorials/moodle_docker/moodl
 - `export MOODLE_DOCKER_DB=pgsql`
 - `export MOODLE_DOCKER_WWWROOT=./moodle/...` so name after version so for instance `./moodle/405` so you can have multiple dockermoodles within the same repo; check with `echo $MOODLE_DOCKER_WWWROOT`
 &rarr; you can also set those in an `.env` file so they are picked up by docker compose but therefore you have to run `set -a; source .env; set +a` before the docker compose command so linux exports those vars...
-4. Clone moodle into this repo; for example `git clone -b MOODLE_403_STABLE git://git.moodle.org/moodle.git $MOODLE_DOCKER_WWWROOT`
+4. Clone moodle into this repo; for example `git clone -b MOODLE_403_STABLE https://github.com/moodle/moodle.git $MOODLE_DOCKER_WWWROOT`
 5. Add the git excludes (see [below](#git-exclude))
-6. Create `config.php` for the moodle setup by using the template file: `cp config.docker-template.php $MOODLE_DOCKER_WWWROOT/
-config.php`
+6. Create `config.php` for the moodle setup by using the template file: `cp config.docker-template.php $MOODLE_DOCKER_WWWROOT/config.php`
 7. Create volumes (not bind mounts) using `local.yml` (see [below](#`local.yml`)) &rarr; Note that the `local.yml` only ever lives in branches that are not the main one; they could be ignored or excluded but for this repo fork structure it is better to include them as long as it is done on different branches so we can have mutliple dockermoodle instances without cloning the repo over and over again...
 In the yaml also specify a project name and then set the env variable `MV`, for instance `export MV=405full`
 8. Spin up the compose project by running `bin/moodle-docker-compose up -d` (`-d` means "detach" so we dont block the terminal)
