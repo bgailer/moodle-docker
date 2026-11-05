@@ -72,6 +72,13 @@ volumes:
   moodledb:
 ```
 
+If you want to access the database, add
+```yml
+    ports:
+      - "5432:5432"
+```
+in the `local.yml` under the `db` service.
+
 ## Permissions
 
 For uploading plugin zips the webserver user `www-data` is there. But this user doesnt have write permissions for the moodle data.
@@ -125,6 +132,19 @@ bin/moodle-docker-compose exec webserver curl <some-url>
 ```bash
 git clone https://github.com/moodlehq/moodle-local_codechecker.git local/codechecker
 ```
+
+## Troubleshooting
+
+If the WSL and Windows interplay causes problems, maybe setting 
+```
+[wsl2]
+networkingMode=mirrored
+```
+in `.wslconfig` can help.
+
+If you configure WSL for the first time, a reboot may be needed.
+
+Enable the WSL integration in teh Docker desktop settings.
 
 ## Some more thoughts
 
