@@ -5,6 +5,8 @@ services:
     volumes:    
       - moodledata:/var/www/moodledata
   db:
+    ports:
+      - "5432:5432"
     volumes:
       - moodledb:/var/lib/postgresql/data
   goemaxima:
