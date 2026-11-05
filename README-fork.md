@@ -21,7 +21,7 @@ You can read this [guide](https://lmstutorials.com/tutorials/moodle_docker/moodl
 3. Set environment variables:
 - `export MOODLE_DOCKER_DB=pgsql`
 - `export MOODLE_DOCKER_WWWROOT=./moodle/...` so name after version so for instance `./moodle/405` so you can have multiple dockermoodles within the same repo; check with `echo $MOODLE_DOCKER_WWWROOT`
-&rarr; you can also set those in an `.env` file so they are picked up by docker compose but therefore you have to run `set -a; source .env; set +a` before the docker compose command so linux exports those vars
+&rarr; you can also set those in an `.env` file so they are picked up by docker compose but therefore you have to run `set -a; source .env; set +a` before the docker compose command so linux exports those vars...
 4. Clone moodle into this repo; for example `git clone -b MOODLE_403_STABLE git://git.moodle.org/moodle.git $MOODLE_DOCKER_WWWROOT`
 5. Add the git excludes (see [below](#git-exclude))
 6. Create `config.php` for the moodle setup by using the template file: `cp config.docker-template.php $MOODLE_DOCKER_WWWROOT/
@@ -129,4 +129,4 @@ git clone https://github.com/moodlehq/moodle-local_codechecker.git local/codeche
 
 ## Some more thoughts
 
-Well you could also do the simple variant by just cloning the original repo and foillowing the steps of the tutorial. This is fine for most cases but if you want another moodle bversion you have to again clone and do the stuff. Another alternative would be to always upgrade your moodle instance. Then the simple approach is probably better than my suggestion of having some more moodles under the `moodle` dir...
+Well you could also do the simple variant by just cloning the original repo and following the steps of the tutorial. This is fine for most cases but if you want another moodle version you have to again clone and do the stuff. Another alternative would be to always upgrade your moodle instance. Then the simple approach is probably better than my suggestion of having some more moodles under the `moodle` dir...
